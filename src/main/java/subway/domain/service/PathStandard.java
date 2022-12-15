@@ -35,4 +35,8 @@ public enum PathStandard {
     public boolean isTime() {
         return this == SHORTEST_TIME;
     }
+
+    public String toDto() {
+        return String.format("%s. %s", number, name);
+    }
 }
