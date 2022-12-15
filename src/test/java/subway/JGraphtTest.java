@@ -40,6 +40,7 @@ public class JGraphtTest {
         graph.addVertex("양재역");
         graph.addVertex("매봉역");
         graph.addVertex("양재시민의숲역");
+        graph.addVertex("한라산역");
         graph.setEdgeWeight(graph.addEdge("교대역", "강남역"), 2);
         graph.setEdgeWeight(graph.addEdge("강남역", "역삼역"), 2);
         graph.setEdgeWeight(graph.addEdge("교대역", "남부터미널역"), 6);
@@ -47,19 +48,14 @@ public class JGraphtTest {
         graph.setEdgeWeight(graph.addEdge("남부터미널역", "양재역"), 6);
         graph.setEdgeWeight(graph.addEdge("양재역", "매봉역"), 1);
         graph.setEdgeWeight(graph.addEdge("양재역", "양재시민의숲역"), 10);
+        graph.setEdgeWeight(graph.addEdge("매봉역", "한라산역"), 10);
 
 
         DijkstraShortestPath<String, DefaultWeightedEdge> dijkstraShortestPath = new DijkstraShortestPath<>(graph);
-        GraphPath<String, DefaultWeightedEdge> path = dijkstraShortestPath.getPath("교대역", "양재역");
+        GraphPath<String, DefaultWeightedEdge> path = dijkstraShortestPath.getPath("교대역", "한라산역");
 
-        /*System.out.println(path.getWeight());
+        System.out.println(path.getWeight());
         System.out.println(path.getVertexList());
-        System.out.println(path.getEdgeList());*/
-        List<DefaultWeightedEdge> edgeList = path.getEdgeList();
-        DefaultWeightedEdge edge = edgeList.get(0);
-        String result = edge.toString();
-        String substring = result.substring(1, result.length() - 1);
-        String[] split = substring.split(" : ");
-        System.out.println(List.of(split[0], split[1]));
+        System.out.println(path.getEdgeList());
     }
 }
