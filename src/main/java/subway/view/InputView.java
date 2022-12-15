@@ -3,7 +3,6 @@ package subway.view;
 import subway.domain.service.PathStandard;
 
 import java.util.Scanner;
-import java.util.function.Supplier;
 
 public class InputView {
 
@@ -34,14 +33,5 @@ public class InputView {
     public String inputEndStation() {
         System.out.println(END_STATION_MESSAGE);
         return scanner.nextLine();
-    }
-
-    public <T> T input(Supplier<T> supplier) {
-        try {
-            return supplier.get();
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return input(supplier);
-        }
     }
 }

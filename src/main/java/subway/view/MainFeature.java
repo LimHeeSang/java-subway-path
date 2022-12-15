@@ -30,4 +30,12 @@ public enum MainFeature {
     public String toDto() {
         return String.format("%s. %s", number, name);
     }
+
+    public boolean isPathGet() {
+        return this == PATH_GET;
+    }
+
+    public boolean isQuit() {
+        return this == QUIT;
+    }
 }
