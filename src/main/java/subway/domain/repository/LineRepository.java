@@ -10,6 +10,15 @@ import java.util.Objects;
 public class LineRepository {
     private static final List<Line> lines = new ArrayList<>();
 
+    static {
+        List<Line> sampleLines = List.of(
+                new Line("2호선"),
+                new Line("3호선"),
+                new Line("신분당선")
+        );
+        lines.addAll(sampleLines);
+    }
+
     public static List<Line> lines() {
         return Collections.unmodifiableList(lines);
     }
