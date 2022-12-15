@@ -52,8 +52,14 @@ public class JGraphtTest {
         DijkstraShortestPath<String, DefaultWeightedEdge> dijkstraShortestPath = new DijkstraShortestPath<>(graph);
         GraphPath<String, DefaultWeightedEdge> path = dijkstraShortestPath.getPath("교대역", "양재역");
 
-        System.out.println(path.getWeight());
+        /*System.out.println(path.getWeight());
         System.out.println(path.getVertexList());
-        System.out.println(path.getEdgeList());
+        System.out.println(path.getEdgeList());*/
+        List<DefaultWeightedEdge> edgeList = path.getEdgeList();
+        DefaultWeightedEdge edge = edgeList.get(0);
+        String result = edge.toString();
+        String substring = result.substring(1, result.length() - 1);
+        String[] split = substring.split(" : ");
+        System.out.println(List.of(split[0], split[1]));
     }
 }
