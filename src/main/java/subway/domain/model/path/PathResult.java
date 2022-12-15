@@ -1,6 +1,6 @@
-package subway.domain.model;
+package subway.domain.model.path;
 
-import org.jgrapht.graph.DefaultWeightedEdge;
+import subway.domain.model.Station;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,19 +11,18 @@ public class PathResult {
     private final List<Station> stations;
     private final List<List<String>> edgeStationNames;
 
-    public PathResult(int weight, List<Station> stations, List<DefaultWeightedEdge> sections) {
+    public PathResult(int weight, List<Station> stations, List<CustomWeightedEdge> sections) {
         this.weight = weight;
         this.stations = stations;
         this.edgeStationNames = new ArrayList<>();
         parsingEdgeStationsName(sections);
     }
 
-    private void parsingEdgeStationsName(List<DefaultWeightedEdge> sections) {
-        for (DefaultWeightedEdge edge : sections) {
-            String edgeName = edge.toString();
-            String removeMark = edgeName.substring(1, edgeName.length() - 1);
-            String[] result = removeMark.split(" : ");
-            edgeStationNames.add(List.of(result[0], result[1]));
+    private void parsingEdgeStationsName(List<CustomWeightedEdge> sections) {
+        for (CustomWeightedEdge edge : sections) {
+            String stations = edge.toString();
+            String[] split = stations.split(",");
+            edgeStationNames.add(List.of(split[0], split[1]));
         }
     }
 

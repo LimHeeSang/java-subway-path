@@ -30,4 +30,20 @@ public class SectionRepository {
     public static List<Section> sections() {
         return Collections.unmodifiableList(sections);
     }
+
+    public static List<Section> findByEdgeStationNames(List<List<String>> stationsNames) {
+        List<Section> result = new ArrayList<>();
+        for (List<String> stationsName : stationsNames) {
+            hasStations(result, stationsName);
+        }
+        return result;
+    }
+
+    private static void hasStations(List<Section> result, List<String> stationsName) {
+        for (Section section : sections) {
+            if (section.hasStations(stationsName)) {
+                result.add(section);
+            }
+        }
+    }
 }

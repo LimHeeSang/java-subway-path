@@ -1,6 +1,8 @@
 package subway.domain.model;
 
 import org.junit.jupiter.api.Test;
+import subway.domain.model.path.PathResult;
+import subway.domain.model.path.ShortestTimePath;
 import subway.domain.repository.SectionRepository;
 import subway.domain.repository.StationRepository;
 

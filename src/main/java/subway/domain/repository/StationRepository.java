@@ -42,4 +42,11 @@ public class StationRepository {
     public static void deleteAll() {
         stations.clear();
     }
+
+    public static Station findByName(String stationName) {
+        return stations.stream()
+                .filter(station -> station.isEqualName(stationName))
+                .findFirst()
+                .orElseThrow(IllegalArgumentException::new);
+    }
 }
