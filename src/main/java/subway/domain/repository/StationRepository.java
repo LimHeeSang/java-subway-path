@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class StationRepository {
+
     private static final List<Station> stations = new ArrayList<>();
 
     static {
@@ -21,6 +22,9 @@ public class StationRepository {
                 new Station("양재시민의숲역")
         );
         stations.addAll(sampleStations);
+    }
+
+    private StationRepository() {
     }
 
     public static List<Station> stations() {
