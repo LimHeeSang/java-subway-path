@@ -39,6 +39,7 @@ public class ShortestDistancePath implements ShortestPath {
 
     @Override
     public PathResult calculatePath(Station start, Station end) {
+        ShortestPathValidator.validateIsEqualStations(start, end);
         GraphPath<Station, CustomWeightedEdge> path = dijkstraPath.getPath(start, end);
         return new PathResult((int) path.getWeight(), path.getVertexList(), path.getEdgeList());
     }
