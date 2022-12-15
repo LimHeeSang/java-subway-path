@@ -54,4 +54,13 @@ class SubwayPathServiceTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 출발역과 도착역이 같을 수 없습니다.");
     }
+
+    @Test
+    void 없는역이름을_입력했을경우_예외발생() {
+        PathRequestDto requestDto = new PathRequestDto(PathStandard.SHORTEST_DISTANCE,
+                "한라산역", "교대역");
+        assertThatThrownBy(() -> subwayPathService.getShortestPath(requestDto))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 해당 이름의 역은 없습니다.");
+    }
 }

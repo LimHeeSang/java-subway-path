@@ -10,6 +10,7 @@ import java.util.Objects;
 public class StationRepository {
 
     private static final List<Station> stations = new ArrayList<>();
+    private static final String ERROR_INVALID_STATION_NAME = "[ERROR] 해당 이름의 역은 없습니다.";
 
     static {
         List<Station> sampleStations = List.of(
@@ -47,6 +48,6 @@ public class StationRepository {
         return stations.stream()
                 .filter(station -> station.isEqualName(stationName))
                 .findFirst()
-                .orElseThrow(IllegalArgumentException::new);
+                .orElseThrow(() -> new IllegalArgumentException(ERROR_INVALID_STATION_NAME));
     }
 }
