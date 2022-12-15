@@ -10,6 +10,19 @@ import java.util.Objects;
 public class StationRepository {
     private static final List<Station> stations = new ArrayList<>();
 
+    static {
+        List<Station> sampleStations = List.of(
+                new Station("교대역"),
+                new Station("강남역"),
+                new Station("역삼역"),
+                new Station("남부터미널역"),
+                new Station("양재역"),
+                new Station("매봉역"),
+                new Station("양재시민의숲역")
+        );
+        stations.addAll(sampleStations);
+    }
+
     public static List<Station> stations() {
         return Collections.unmodifiableList(stations);
     }
