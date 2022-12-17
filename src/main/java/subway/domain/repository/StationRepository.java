@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class StationRepository {
-
     private static final List<Station> stations = new ArrayList<>();
     private static final String ERROR_INVALID_STATION_NAME = "[ERROR] 해당 이름의 역은 없습니다.";
 
